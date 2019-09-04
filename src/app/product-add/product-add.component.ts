@@ -13,13 +13,13 @@ export class ProductAddComponent implements OnInit {
   }
   createForm(){
     this.angForm = this.fb.group({
-      ProductName: [, Validators.required],
-      ProductDescription: [,Validators.required],
-      ProductPrice: [,Validators.required]
+      productName: [, Validators.required],
+      productDescription: [,Validators.required],
+      productPrice: [,Validators.required]
     });
   }
-  addProduct(ProductName, ProductDescription, ProductPrice) {  
-    this.ps.addProduct(ProductName, ProductDescription, ProductPrice);  
+  addProduct(productName, productDescription, productPrice) {  
+    this.ps.addProduct(productName, productDescription, productPrice);  
   }  
   ngOnInit() {
   }

@@ -1,5 +1,5 @@
 export default class Product {  
-    ProductName: string;  
-    ProductDescription: string;  
-    ProductPrice: number;  
+    productName: string;  
+    productDescription: string;  
+    productPrice: number;  
   }  

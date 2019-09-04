@@ -4,16 +4,36 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProductsService {
-  uri = 'http://localhost:4000/products';
+  uri = 'http://localhost:8080/product';
   constructor(private http: HttpClient) { }
-  addProduct(ProductName, ProductDescription, ProductPrice) {
+  addProduct(productName, productDescription, productPrice) {
     const obj = {
-      ProductName,
-      ProductDescription,
-      ProductPrice
+      productName,
+      productDescription,
+      productPrice
     };
     console.log(obj);
-    this.http.post(`${this.uri}/add`, obj)
+    this.http.post(`${this.uri}/create`, obj)
+      .subscribe(res => console.log('Done'));
+  }
+  getProducts() {
+    return this
+      .http
+      .get(`${this.uri}/all`);
+  }
+  editProduct(id) {
+    return this
+      .http
+      .get(`${this.uri}/edit/${id}`);
+  }
+  updateProduct(productName, productDescription, productPrice, id) {
+    const obj = {
+      productName,
+      productDescription,
+      productPrice
+    };
+    this.http
+      .put(`${this.uri}/update/${id}`, obj)
       .subscribe(res => console.log('Done'));
   }
 }
